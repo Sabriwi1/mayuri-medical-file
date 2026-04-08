@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mayuri Case File</title>
+
+<style>
+body {
+    margin: 0;
+    background: #f5e6ef;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Viewer */
+.viewer {
+    position: relative;
+    width: 900px;
+    height: 600px;
+}
+
+/* Pages */
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 0.4s ease;
+}
+
+.page.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Image */
+.page img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Click zone (number area) */
+.click {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    width: 90px;
+    height: 90px;
+    cursor: pointer;
+}
+</style>
+
+</head>
+<body>
+
+<div class="viewer">
+
+    <!-- PAGE 1 -->
+    <div class="page active">
+        <img src="https://i.imgur.com/iK7ir13.png">
+        <div class="click" onclick="nextPage()"></div>
+    </div>
+
+    <!-- PAGE 2 -->
+    <div class="page">
+        <img src="https://i.imgur.com/OEF2JvH.png">
+        <div class="click" onclick="nextPage()"></div>
+    </div>
+
+    <!-- PAGE 3 -->
+    <div class="page">
+        <img src="https://i.imgur.com/YVt9wN9.png">
+        <div class="click" onclick="nextPage()"></div>
+    </div>
+
+    <!-- PAGE 4 -->
+    <div class="page">
+        <img src="https://i.imgur.com/2gOFa1c.png">
+        <div class="click" onclick="nextPage()"></div>
+    </div>
+
+    <!-- PAGE 5 -->
+    <div class="page">
+        <img src="https://i.imgur.com/NH9MjJ1.png">
+        <div class="click" onclick="nextPage()"></div>
+    </div>
+
+</div>
+
+<script>
+let current = 0;
+const pages = document.querySelectorAll(".page");
+
+function nextPage() {
+    pages[current].classList.remove("active");
+    current = (current + 1) % pages.length;
+    pages[current].classList.add("active");
+}
+</script>
+
+</body>
+</html>
