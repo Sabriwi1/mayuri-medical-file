@@ -1,1 +1,0 @@
-# mayuri-medical-file
